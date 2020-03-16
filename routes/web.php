@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/users/list');
+
+Route::get('/users/list', 'UserController@list');
+Route::get('/users/create', 'UserController@create');
+Route::post('/users/create', 'UserController@store');
+Route::get('/users/update/{id}', 'UserController@edit');
+Route::post('/users/update/{id}', 'UserController@update');
+Route::get('/users/delete/{id}', 'UserController@delete');
+Route::get('/users/{id}', 'UserController@show');
